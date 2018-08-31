@@ -81,7 +81,7 @@ self.addEventListener('fetch', function(e) {
     							console.log("ServiceWorker no response from fetch ")
     							return response;
     						}
-
+//if we get response clone the response
     						var responseClone = response.clone();
 
     						//  Open the cache
