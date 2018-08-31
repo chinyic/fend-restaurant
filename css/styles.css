@@ -47,8 +47,8 @@ header {
 	display: flex;
 }
 #footer {
-  background-color: #444;
-  color: #aaa;
+  background-color: #252831;
+  color: #fdfdfd;
   font-size: 8pt;
   letter-spacing: 1px;
   padding: 5px;
@@ -189,9 +189,9 @@ nav h1 a {
   font-size: 11pt;
 }
 #restaurants-list li a {
-  background-color: orange;
+  background-color: #252831;
   border-bottom: 3px solid #eee;
-  color: #fff;
+  color: #fdfdfd;
   display: inline-block;
   font-size: 10pt;
   margin: 15px 0 0;
