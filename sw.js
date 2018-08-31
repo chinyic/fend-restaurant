@@ -21,14 +21,14 @@ self.addEventListener('install', function(e) {
 	    caches.open(cacheName).then(function(cache) {
 
 	    	// Add all the default files to the cache
-			console.log('[ServiceWorker] Caching cacheFiles');
+			console.log('ServiceWorker Caching cacheFiles');
 			return cache.addAll(cacheFiles);
 	    })
 	); // end e.waitUntil
 });
 
 self.addEventListener('activate', function(e) {
-    console.log('[ServiceWorker] Activated');
+    console.log('ServiceWorker Activated');
 
     e.waitUntil(
 
@@ -45,7 +45,7 @@ self.addEventListener('activate', function(e) {
    				if (thisCacheName !== cacheName) {
 
    					// Delete cached file
-   					console.log('[ServiceWorker] deleting outdated cache files', thisCacheName);
+   					console.log('ServiceWorker deleting outdated cache files', thisCacheName);
    					return caches.delete(thisCacheName);
    				}
    			}));
