@@ -161,6 +161,7 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+image.setAttribute("alt", `An image of the restaurant.`);
   li.append(image);
 
   const name = document.createElement('h1');
@@ -180,6 +181,7 @@ createRestaurantHTML = (restaurant) => {
   more.href = DBHelper.urlForRestaurant(restaurant);
   more.tabIndex= '3';
   //add tab index to restaurants directly in JS
+
   li.append(more)
 
   return li
