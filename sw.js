@@ -4,13 +4,9 @@ var cacheName = 'v1';
 var cacheFiles = [
 	'./',
 	'./index.html',
-  './restaurant.html',
-  './js/restaurant_info.js',
 	'./js/main.js',
-  './js/dbhelper.js',
-	'./css/styles.css',
-	'//normalize-css.googlecode.com/svn/trunk/normalize.css',
-  'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css',
+//  './js/dbhelper.js',
+	'./css/styles.css'
 ]
 
 
