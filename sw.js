@@ -5,11 +5,12 @@ var cacheFiles = [
 	'./',
 	'./index.html',
   './restaurant.html',
+  './js/restaurant_info.js',
 	'./js/main.js',
   './js/dbhelper.js',
-  './js/restaurant_info.js',
 	'./css/styles.css',
-	'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic'
+	'//normalize-css.googlecode.com/svn/trunk/normalize.css',
+  'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css',
 ]
 
 
@@ -54,6 +55,53 @@ self.addEventListener('activate', function(e) {
 });
 
 self.addEventListener('fetch', function(e) {
-    console.log('[ServiceWorker] Fetching');
+    console.log('ServiceWorker fetching', e.request.url);
+    // e.respondWith responds to the fetch event
+    	e.respondWith(
 
+    		// Check in cache for the request being made
+    		caches.match(e.request)
+
+    			.then(function(response) {
+
+    				// If the request is in the cache
+    				if (response) {
+    					console.log("Found in cache", e.request.url, response);
+    					// Return the cached version
+    					return response;
+    				}
+
+    				// If the request is NOT in the cache, fetch and cache
+
+    				var requestClone = e.request.clone();
+    				return fetch(requestClone)
+    					.then(function(response) {
+
+    						if ( !response ) {
+    							console.log("ServiceWorker no response from fetch ")
+    							return response;
+    						}
+
+    						var responseClone = response.clone();
+
+    						//  Open the cache
+    						caches.open(cacheName).then(function(cache) {
+
+    							// Put the fetched response in the cache
+    							cache.put(e.request, responseClone);
+    							console.log('ServiceWorker new data cached', e.request.url);
+
+    							// Return the response
+    							return response;
+
+    				        }); // end caches.open
+
+    					})
+    					.catch(function(err) {
+    						console.log('ServiceWorker error fetching and caching new data', err);
+    					});
+
+
+    			}) // end caches.match(e.request)
+    	); // end e.respondWith
 });
