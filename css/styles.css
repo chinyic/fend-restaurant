@@ -322,6 +322,18 @@ nav h1 a {
 /*media queries*/
 @media only screen and (min-width: 750px) {
 
+section{
+	width:100%;
+}
+
+.filter-options{
+	width:90%;
+	margin: 0 auto;
+	text-align: center;
+
+}
+
+
 	#maincontent{
 		flex-direction: row;
 	}
