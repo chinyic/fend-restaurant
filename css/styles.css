@@ -164,7 +164,6 @@ nav h1 a {
   max-width: 500px;
 	width: 80%;
 	flex-wrap: wrap;
-	display: flex;
 }
 #restaurants-list .restaurant-img {
   background-color: #ccc;
